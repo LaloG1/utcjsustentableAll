@@ -46,6 +46,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 /// Rutas views
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+
 Route::get('/lista-actividades', function () {
     return view('lista-actividades');
 });

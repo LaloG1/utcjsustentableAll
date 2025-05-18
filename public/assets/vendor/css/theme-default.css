@@ -130,13 +130,13 @@ button.list-group-item-primary.active {
 
 .btn-primary {
   color: #fff;
-  background-color: #8c57ff;
-  border-color: #8c57ff;
+  background-color: #2ca82c;
+  border-color: #2ca82c;
 }
 .btn-primary:hover {
   color: #fff !important;
-  background-color: #7e4ee6 !important;
-  border-color: #7e4ee6 !important;
+  background-color: #7b9e2b !important;
+  border-color: #7b9e2b !important;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus, .btn-primary.focus {
   color: #fff;
@@ -498,10 +498,10 @@ html[dir=rtl] .border-primary {
 }
 
 a {
-  color: #8c57ff;
+  color: #148509;
 }
 a:hover {
-  color: #9868ff;
+  color: #99a30a;
 }
 
 .fill-primary {

@@ -1,130 +1,185 @@
 <!doctype html>
-<html lang="en">
-<!--begin::Head-->
+
+<html
+    lang="en"
+    class="light-style layout-wide customizer-hide"
+    dir="ltr"
+    data-theme="theme-default"
+    data-assets-path="../assets/"
+    data-template="vertical-menu-template-free"
+    data-style="light">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
     <title>UTCJ | Sustentable</title>
-    <!--begin::Primary Meta Tags-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="UTCJ | Sustentable" />
-    <meta name="author" content="ColorlibHQ" />
-    <meta
-        name="description"
-        content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS." />
-    <meta
-        name="keywords"
-        content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard" />
-    <!--end::Primary Meta Tags-->
-    <!--begin::Fonts-->
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets\img\favicon\favicon-32x32.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
-        integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
-        crossorigin="anonymous" />
-    <!--end::Fonts-->
-    <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
-        integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg="
-        crossorigin="anonymous" />
-    <!--end::Third Party Plugin(OverlayScrollbars)-->
-    <!--begin::Third Party Plugin(Bootstrap Icons)-->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI="
-        crossorigin="anonymous" />
-    <!--end::Third Party Plugin(Bootstrap Icons)-->
-    <!--begin::Required Plugin(AdminLTE)-->
-    <!-- <link rel="stylesheet" href="../../../dist/css/adminlte.css" /> -->
-    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}" />
-    <!--end::Required Plugin(AdminLTE)-->
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../assets/vendor/fonts/remixicon/remixicon.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="../assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
 </head>
-<!--end::Head-->
-<!--begin::Body-->
 
-<body class="login-page bg-body-secondary">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href=""><b>UTCJ </b>Sustentable</a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg"><strong>Inicio de sesión</strong></p>
-                <div class="text-center mb-3">
-                    <img src="{{ asset('dist/img/utsustentable.jpg') }}" alt="Logo" class="img-fluid" style="max-width: 150px;">
+<body>
+    <!-- Content -->
+
+    <div class="position-relative">
+        <div class="authentication-wrapper authentication-basic container-p-y">
+            <div class="authentication-inner py-6 mx-4">
+                <!-- Login -->
+                <div class="card p-7">
+                    <!-- Logo -->
+                    <div class="app-brand justify-content-center mt-5">
+                        <a href="index.html" class="app-brand-link gap-3">
+
+                            <span class="app-brand-logo demo">
+                                <img src="../dist\img\utsustentable.jpg" alt="Logo" width="150" height="150">
+                            </span>
+
+                        </a>
+                    </div>
+                    <!-- /Logo -->
+                    <h4 class="mb-1 text-center">Bienvenido</h4>
+                    <div class="card-body mt-1">
+
+
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+
+                            @if($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                                @endforeach
+                            </div>
+                            @endif
+
+                            <div class="form-floating form-floating-outline mb-5">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Ingresa tu correo"
+                                    pattern="al[0-9]{8}@utcj\.edu\.mx"
+                                    title="El correo debe tener el formato: al########@utcj.edu.mx"
+                                    autofocus />
+                                <label for="email">Correo</label>
+                            </div>
+                            <div class="mb-5">
+                                <div class="form-password-toggle">
+                                    <div class="input-group input-group-merge">
+                                        <div class="form-floating form-floating-outline">
+                                            <input
+                                                type="password"
+                                                id="password"
+                                                class="form-control"
+                                                name="password"
+                                                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                aria-describedby="password" />
+                                            <label for="password">Contraseña</label>
+                                        </div>
+                                        <span class="input-group-text cursor-pointer"><i class="ri-eye-off-line ri-20px"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-5 pb-2 d-flex justify-content-between pt-2 align-items-center">
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                                    <label class="form-check-label" for="remember-me"> Recordarme </label>
+                                </div>
+                                <a href="auth-forgot-password-basic.html" class="float-end mb-1">
+                                    <span>Olvidaste tu contraseña?</span>
+                                </a>
+                            </div>
+                            <div class="mb-5">
+                                <button class="btn btn-primary d-grid w-100" type="submit">Entrar</button>
+                            </div>
+                        </form>
+
+                        <p class="text-center mb-5">
+                            <span>Nuevo en la plataforma?</span>
+                            <a href="{{ route('register') }}">
+                                <span>Crea una cuenta</span>
+                            </a>
+                        </p>
+                    </div>
                 </div>
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-
-                    @if($errors->any())
-                    <div class="alert alert-danger">
-                        @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                        @endforeach
-                    </div>
-                    @endif
-
-                    <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Correo"
-                            pattern="al[0-9]{8}@utcj\.edu\.mx"
-                            title="El correo debe tener el formato: al########@utcj.edu.mx"
-                            required />
-                        <div class="input-group-text"><span class="bi bi-envelope"></span></div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Contraseña" />
-                        <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
-                    </div>
-                    <!--begin::Row-->
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault"> Recordarme </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Entrar</button>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!--end::Row-->
-                </form>
+                <!-- /Login -->
+                <img
+                    src="../assets/img/illustrations/sustentable.png"
+                    alt="auth-tree"
+                    class="authentication-image-object-left d-none d-lg-block" />
+                <img
+                    src="../assets/img/illustrations/auth-basic-mask-light.png"
+                    class="authentication-image d-none d-lg-block"
+                    height="172"
+                    alt="triangle-bg"
+                    data-app-light-img="illustrations/auth-basic-mask-light.png"
+                    data-app-dark-img="illustrations/auth-basic-mask-dark.png" />
+                <img
+                    src="../assets/img/illustrations/hoja1.png"
+                    alt="auth-tree"
+                    class="authentication-image-object-right d-none d-lg-block" />
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
-    <!-- /.login-box -->
-    <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <script
-        src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
-        integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ="
-        crossorigin="anonymous"></script>
-    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-    <script
-        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <!--  <script src="../../../dist/js/adminlte.js"></script> -->
-    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 
-    <!--end::OverlayScrollbars Configure-->
-    <!--end::Script-->
+    <!-- / Content -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag before closing body tag for github widget button. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
-<!--end::Body-->
 
 </html>
