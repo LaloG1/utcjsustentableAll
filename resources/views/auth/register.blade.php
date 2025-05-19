@@ -66,7 +66,7 @@
                         <a href="index.html" class="app-brand-link gap-3">
 
                             <span class="app-brand-logo demo">
-                                <img src="../dist\img\utsustentable.jpg" alt="Logo" width="150" height="150">
+                                <img src="../dist\img\utsustentable.jpg" alt="Logo" width="200" height="200">
                             </span>
 
                         </a>

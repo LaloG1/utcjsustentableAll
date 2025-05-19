@@ -140,13 +140,13 @@ button.list-group-item-primary.active {
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #7e4ee6;
+  background-color: #05af22;
   border-color: #7e4ee6;
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .btn-primary.show.dropdown-toggle, .show > .btn-primary.dropdown-toggle {
   color: #fff !important;
-  background-color: #7e4ee6 !important;
-  border-color: #7e4ee6 !important;
+  background-color: #2bff00 !important;
+  border-color: #288f00 !important;
 }
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff !important;
