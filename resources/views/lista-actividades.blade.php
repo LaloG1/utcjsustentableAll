@@ -108,13 +108,13 @@
               <a href="{{ route('actividades.create') }}" class="btn btn-primary btn-sm px-4">Nueva actividad</a>
             </div>
 
-            <!-- Table with stripped rows -->
+           
             <!-- Table with stripped rows -->
             <table id="actividadTable" class="table">
               <thead>
-                <tr>
+                <tr >
                   <th scope="col">#</th>
-                  <th scope="col">Id</th>
+                  <!-- <th scope="col">Id</th> -->
                   <th scope="col">Periodo</th>
                   <th scope="col">Horario</th>
                   <th scope="col"># Alumnos</th>
@@ -123,9 +123,9 @@
               </thead>
               <tbody>
                 @foreach($actividades as $index => $actividad)
-                <tr data-id="{{ $actividad->id }}" class="parent-row">
+                <tr data-id="{{ $actividad->id }}" class="parent-row" style="cursor:pointer;">
                   <td>{{ $index + 1 }}</td>
-                  <td><a href="javascript:void(0)"><strong>{{ $actividad->id }}</strong></a></td>
+                  <!-- <td><a href="javascript:void(0)"><strong>{{ $actividad->id }}</strong></a></td> -->
                   <td>{{ $actividad->Periodo }}</td>
                   <td>{{ $actividad->Horario }}</td>
                   <td>{{ $actividad->alumnos->count() }}</td>
@@ -157,22 +157,23 @@
             <div id="child-row-{{ $actividad->id }}" class="child-row mt-2 mb-4" style="display:none;">
               <table class="table table-bordered">
                 <thead>
-                  <tr>
+                  <tr >
                     <th>#</th>
-                    <th>ID Alumno</th>
+                    <!-- <th>ID Alumno</th> -->
                     <th>Nombre</th>
                     <th>Estado</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($actividad->alumnos as $index => $alumno)
-                  <tr>
+                  <tr class="alumno-row" data-id="{{ $alumno->id }}" style="cursor:pointer;">
+
                     <td>{{ $index + 1 }}</td>
-                    <td>
+                   <!--  <td>
                       <a href="javascript:void(0)" class="alumno-link" data-id="{{ $alumno->id }}">
                         <strong>{{ $alumno->id }}</strong>
                       </a>
-                    </td>
+                    </td> -->
                     <td>{{ $alumno->nombre }}</td>
                     <td>
                       @php
@@ -239,3 +240,16 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.alumno-row').forEach(function (row) {
+      row.addEventListener('click', function () {
+        const alumnoId = this.dataset.id;
+        // Redirige a la ruta con el ID del alumno
+        window.location.href = "/tareas-alumno/" + alumnoId;
+      });
+    });
+  });
+</script>
+
